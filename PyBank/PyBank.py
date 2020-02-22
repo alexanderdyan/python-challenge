@@ -15,12 +15,14 @@ with open(csvPath) as csvFile:
     print(f"CSV Header: {csv_header}")
 
     numberMonths = 0
+    totalProfitLosses = 0
 
     # Read each row of data after the header
     for row in csvreader:
         print(row[0])
-        numberMonths = numberMonths +1
+        numberMonths += 1
+        totalProfitLosses += int(row[1])
 
-    
+
     print(f"Number of Months: {numberMonths}")
-
+    print(f"Total Profit/Losses: {totalProfitLosses}")
