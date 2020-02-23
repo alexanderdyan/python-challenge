@@ -51,8 +51,8 @@ with open(csvPath) as csvFile:
     results += "Financial Analysis\n"
     results += "----------------------------\n"
     results += f"Number of Months: {numberMonths}\n"
-    results += f"Total Profit/Losses: {totalProfitLosses}\n"
-    results += f"Average Change: {averageChange}\n"
+    results += f"Total Profit/Losses: ${totalProfitLosses}\n"
+    results += f"Average Change: ${averageChange}\n"
     results += f"Greatest Increase in Profits:{greatestProfitMonth} (${greatestProfit})\n"
     results += f"Greatest Decrease in Profits:{greatestLossMonth} (${greatestLoss})\n"
     print(results)
