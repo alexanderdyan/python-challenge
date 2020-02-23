@@ -8,11 +8,8 @@ with open(csvPath) as csvFile:
     # CSV reader specifies delimiter and variable that holds contents
     csvreader = csv.reader(csvFile, delimiter=',')
 
-    print(csvreader)
-
     # Read the header row first (skip this step if there is no header)
     csv_header = next(csvreader)
-    print(f"CSV Header: {csv_header}")
 
     numberMonths = 0
     totalProfitLosses = 0
@@ -50,14 +47,20 @@ with open(csvPath) as csvFile:
     
     #compute the average of sum of changes
     averageChange = averageChange / (numberMonths - 1)
+    results = ""
+    results += "Financial Analysis\n"
+    results += "----------------------------\n"
+    results += f"Number of Months: {numberMonths}\n"
+    results += f"Total Profit/Losses: {totalProfitLosses}\n"
+    results += f"Average Change: {averageChange}\n"
+    results += f"Greatest Increase in Profits:{greatestProfitMonth} (${greatestProfit})\n"
+    results += f"Greatest Decrease in Profits:{greatestLossMonth} (${greatestLoss})\n"
+    print(results)
 
-    print("Financial Analysis")
-    print("----------------------------")
-    print(f"Number of Months: {numberMonths}")
-    print(f"Total Profit/Losses: {totalProfitLosses}")
-    print(f"Average Change: {averageChange}")
-    print(f"Greatest Increase in Profits:{greatestProfitMonth} (${greatestProfit})")
-    print(f"Greatest Decrease in Profits:{greatestLossMonth} (${greatestLoss})")
+    with open("results.txt", 'w+') as file:
+        file.write(results)
+    
+
 
      
 
